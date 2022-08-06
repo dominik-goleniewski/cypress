@@ -1,14 +1,10 @@
 export class MainPage {
 
-   
-
     static openAutomationPracticePage(){
 
         cy.visit("http://automationpractice.com/index.php");
 
     }
-
-
 
     static clickCategory(name){
 
@@ -16,23 +12,17 @@ export class MainPage {
 
     }
 
-
-
     static clickSignIn(){
         cy.get('.header_user_info').contains("Sign in").click();
     }
-
-
 
     static clickShoppingCart(){
 
         cy.get('.shopping_cart').contains("Cart").click();
 
     }
-
     
-
-    static clickAddProduct(id){
+    static clickAddProductAndGetPrice(id){
 
         let price = Cypress.$(`.product_list > :nth-child(${id}) .price`);
         cy.get(`[data-id-product=${id}]`).contains("Add to cart").click();
@@ -40,13 +30,11 @@ export class MainPage {
 
     }
 
-
     static clickContinueShopping(){
 
         cy.get('.continue').contains("Continue shopping").click();
 
     }
-
 
     static clickProceedToCheckout() {
 
@@ -54,4 +42,7 @@ export class MainPage {
 
     }
 
+    static addItemByName(item) {
+        cy.get(".product_list").find(".product-container").contains(item).parents('.product-container').contains('Add to cart').click();
+    }
 }

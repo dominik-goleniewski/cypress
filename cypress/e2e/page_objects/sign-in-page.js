@@ -1,7 +1,8 @@
-import user from './../../fixtures/password.json'
-
 export class SignInPage {
 
+    static checkIfSigningPageIsOpen() {
+        cy.url().should('eq', 'http://automationpractice.com/index.php?controller=authentication&back=my-account');
+    }
 
     static putEmail(email) {
 
@@ -9,13 +10,11 @@ export class SignInPage {
 
     }
 
-
     static putPassword(password) {
 
         cy.get('#passwd').type(password);
 
     }
-
 
     static clickSignIn() {
 
@@ -23,5 +22,10 @@ export class SignInPage {
 
     }
 
+    static clickLogOut() {
+
+        cy.get('.logout').contains("Sign out").click();
+
+    }
 
 }
