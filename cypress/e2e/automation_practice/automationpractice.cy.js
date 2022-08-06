@@ -13,7 +13,7 @@ context('e-shop go to', () => {
 
         let data;
         before(() => {
-            cy.fixture('Users.json').then(function (loginData) {
+            cy.fixture('loginUsers.json').then(function (loginData) {
                 data = loginData;
             })
         })
